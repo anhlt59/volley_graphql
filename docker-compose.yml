@@ -4,13 +4,16 @@ services:
   app:
     build:
       context: .
-    command: python3 manage.py runserver 0.0.0.0:8000
+    image: volley_graphql_app:1.0
+    command: python3 manage.py runserver 0.0.0.0:8001
     volumes:
-      - .:/app/
+      - ./app:/app/
     env_file:
       - .envs/django.env
     ports:
-      - 8000:8000
+      - 8001:8001
+    depends_on:
+      - postgres
 
   postgres:
     image: postgres:11-alpine
@@ -21,4 +24,4 @@ services:
 
 volumes:
   pgdata:
-  
+  app:

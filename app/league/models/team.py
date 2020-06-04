@@ -7,7 +7,7 @@ class Team(TimeStampedModel):
         max_length=100,
     )
     slug = AutoSlugField(
-        populate_from=["name",],
+        populate_from=["name"],
     )
     location = models.TextField()
 
@@ -28,8 +28,8 @@ class TeamSeason(TimeStampedModel):
         max_length=100,
     )
     slug = AutoSlugField(
-        populate_from=["name",],
+        populate_from=["name"],
     )
 
     def __str__(self):
-        return f"{self.name} ({self.team} {self.session})"
+        return f"{self.name} ({self.team} {self.season})"

@@ -8,7 +8,7 @@ class League(TimeStampedModel):
         max_length=100,
     )
     slug = AutoSlugField(
-        populate_from=["name",],
+        populate_from=["name"],
     )
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -16,4 +16,4 @@ class League(TimeStampedModel):
     )
 
     def __str__(self):
-        return f"{self.name} ({self.owner})"
+        return f"{self.name}"

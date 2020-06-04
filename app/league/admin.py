@@ -4,6 +4,9 @@ from .models import (
     Season,
     Team,
     TeamSeason,
+    Player,
+    PlayerInTeam,
+    Match,
 )
 
 
@@ -17,7 +20,7 @@ class LeagueAdmin(admin.ModelAdmin):
 
 
 @admin.register(Season)
-class SessionAdmin(admin.ModelAdmin):
+class SeasonAdmin(admin.ModelAdmin):
     list_display = (
         "name",
         "league",
@@ -43,3 +46,32 @@ class TeamSeasonAdmin(admin.ModelAdmin):
         "created",
     )
 
+@admin.register(Player)
+class PlayerAdmin(admin.ModelAdmin):
+    list_display = (
+        "first_name",
+        "last_name",
+        "height",
+        "weight",
+        "date_of_birth",
+        "created",
+    )
+
+
+@admin.register(PlayerInTeam)
+class PlayerInTeamAdmin(admin.ModelAdmin):
+    list_display = (
+        "player",
+        "team",
+        "created",
+    )
+
+
+@admin.register(Match)
+class MatchAdmin(admin.ModelAdmin):
+    list_display = (
+        "host",
+        "guest",
+        "match_date",
+        "score",
+    )

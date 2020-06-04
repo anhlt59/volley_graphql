@@ -114,5 +114,9 @@ MIGRATION_MODULES = {
 }
 
 AUTH_USER_MODEL = 'auth.User' # default django.contrib.auth.User
+
+# datetime format
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
+
 WSGI_APPLICATION = 'config.wsgi.application'
 ASGI_APPLICATION = 'config.asgi.application'

@@ -1,9 +1,11 @@
 Django
 psycopg2
-pytz
 django-extensions
 django-environ
-faker
+django-filter
 django-graphql-jwt
 graphene
 graphene-django
+graphene-django-extras
+django-graphiql
+Faker

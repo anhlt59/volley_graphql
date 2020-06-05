@@ -17,7 +17,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -28,10 +27,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # third-party apps
-
+    "graphene_django",
+    "django_filters",
     # installed apps
     "core",
     "league",
+    "graphql_api",
 ]
 
 MIDDLEWARE = [
@@ -65,7 +66,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
 # Database
 DATABASES = {
     "default": {
@@ -77,7 +77,6 @@ DATABASES = {
         "PORT": env('DB_PORT'),
     }
 }
-
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -120,3 +119,25 @@ DATE_INPUT_FORMATS = ['%d-%m-%Y']
 
 WSGI_APPLICATION = 'config.wsgi.application'
 ASGI_APPLICATION = 'config.asgi.application'
+
+# graphene_django
+GRAPHENE = {
+    "SCHEMA": "graphql_api.schema.schema",
+    # "SCHEMA_OUTPUT": "data/myschema.json",
+    "MIDDLEWARE": [
+        "graphql_jwt.middleware.JSONWebTokenMiddleware",
+    ]
+}
+
+# # graphql jwt
+# from datetime import timedelta
+# GRAPHQL_JWT = {
+#     'JWT_VERIFY_EXPIRATION': True,
+#     'JWT_EXPIRATION_DELTA': timedelta(minutes=5),
+#     'JWT_REFRESH_EXPIRATION_DELTA': timedelta(days=7),
+# }
+
+# AUTHENTICATION_BACKENDS = [
+#     'graphql_jwt.backends.JSONWebTokenBackend',
+#     'django.contrib.auth.backends.ModelBackend',
+# ]

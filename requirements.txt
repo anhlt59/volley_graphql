@@ -3,3 +3,7 @@ psycopg2
 pytz
 django-extensions
 django-environ
+faker
+django-graphql-jwt
+graphene
+graphene-django

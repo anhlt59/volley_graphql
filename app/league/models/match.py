@@ -19,7 +19,7 @@ class Match(TimeStampedModel):
     guest = models.ForeignKey(
         "league.TeamSeason",
         on_delete=models.PROTECT,
-        related_name = "+",
+        related_name="+",
     )
     match_date = models.DateTimeField()
     score = models.PositiveSmallIntegerField(
